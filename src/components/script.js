@@ -28,7 +28,7 @@ export const sendbulkemail = async item => {
       Body: {
         Html: {
           Charset: "UTF-8",
-          Data: `<div style="font-weight: 700; margin-bottom: 10px;">${title}</div><div>${content}</div> <a class="ulink" href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide" target="_blank">Amazon SES Developer Guide</a>.`
+          Data: `<div style="font-weight: 700; margin-bottom: 10px;">${title}</div><div>${content}</div> <a class="ulink" href="https://www.nexprt.com" target="_blank">Nexprt Solutions Private Limited</a>.`
         },
         Text: {
           Charset: "UTF-8",
@@ -58,7 +58,7 @@ export const sendbulkRawemail = async item => {
   var attachment = item.base64;
   // 1b. Email Raw Data
   // eslint-disable-next-line no-useless-escape
-  var message = `From:${sender}\nTo:${receipient}\nSubject:${subject}\nContent-type: Multipart/Mixed; boundary=\"NextPart\"\n\n--NextPart\nContent-Type: text/html\n\n<html><body><div style="font-weight: bold; text-transform: uppercase; margin-bottom: 10px;">${title}</div><div>${content}</div><div style="margin-top: 2rem;"><span style="color: #AD1457">WORK</span><span style="color: #023e7d">BOOK</span></div><div style="color: grey; font-size: 10px;">Copyright © 2021 Nexprt Solutions Private Limited, All rights reserved.</div></body></html>\n\n--NextPart\nContent-Type: text/plain; name=${filename}\nContent-Description: ${item.attachment}\nContent-Disposition: attachment;filename=${filename}\nContent-Transfer-Encoding: base64\n\n${attachment}\n\n--NextPart--`;
+  var message = `From:${sender}\nTo:${receipient}\nSubject:${subject}\nContent-type: Multipart/Mixed; boundary=\"NextPart\"\n\n--NextPart\nContent-Type: text/html\n\n<html><body><div style="font-weight: bold; text-transform: uppercase; margin-bottom: 10px;">${title}</div><div>${content}</div><div style="margin-top: 2rem;"><span style="color: #AD1457">Nexprt Solutions</span><span style="color: #023e7d">Private Limited</span></div><div style="color: grey; font-size: 10px;">Copyright © 2021 Nexprt Solutions Private Limited, All rights reserved.</div></body></html>\n\n--NextPart\nContent-Type: text/plain; name=${filename}\nContent-Description: ${item.attachment}\nContent-Disposition: attachment;filename=${filename}\nContent-Transfer-Encoding: base64\n\n${attachment}\n\n--NextPart--`;
   // 2a. Params (Email Object)
   // eslint-disable-next-line
   var params = {
